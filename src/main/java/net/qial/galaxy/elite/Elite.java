@@ -38,7 +38,7 @@ public class Elite {
 	}
 	
 	public void mysrand(int seed) {
-		srand(seed);
+		//srand(seed);
 		lastrand = seed-1;
 	}
 	
@@ -50,11 +50,14 @@ public class Elite {
 			this.c = c;
 			this.d = d;
 		}
+		public FastSeedType() {
+			// TODO Auto-generated constructor stub
+		}
 	}
 	
 	class SeedType {
 		int w0,w1,w2;
-		public SeedType(int a,b,c) {
+		public SeedType(int a,int b,int c) {
 			this.w0 = a;
 			this.w1 = b;
 			this.w2 = c;
@@ -64,6 +67,6 @@ public class Elite {
 	class Plansys {
 		int x,y,economy,govtype,techlev,population,productivity,radius;
 		String name;
-		FastSeedType goatsoupseed;
+		FastSeedType goatsoupseed = new FastSeedType();
 	}
 }
