@@ -1,5 +1,7 @@
 package net.qial.galaxy.bin;
 
+import net.qial.galaxy.world.*;
+
 public class Throwaway {
 
 	/**
@@ -11,6 +13,10 @@ public class Throwaway {
 	}
 	
 	public static void testworld() {
+		String id = "0:10";
+		StarSys sys = new StarSys(id);
+		sys.init();
+		System.out.println(sys);
 		
 	}
 
