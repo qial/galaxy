@@ -21,7 +21,28 @@ public class SimpleView {
 	private int y = 300;
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
-	private static final int MOVE_SPEED = 75;
+	private static final int MOVE_SPEED = 60;
+	
+//	private TrueTypeFont font;
+//	private TrueTypeFont font2;
+//	 
+//	public void init() {
+//		// load a default java font
+//		Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
+//		font = new TrueTypeFont(awtFont, false);
+//	 
+//		// load font from a .ttf file
+//		try {
+//			InputStream inputStream	= ResourceLoader.getResourceAsStream("myfont.ttf");
+//	 
+//			Font awtFont2 = Font.createFont(Font.TRUETYPE_FONT, inputStream);
+//			awtFont2 = awtFont2.deriveFont(24f); // set font size
+//			font2 = new TrueTypeFont(awtFont2, false);
+//	 
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}	
+//	}
 	
 	public void start() {
 	    try {
@@ -37,7 +58,10 @@ public class SimpleView {
 		GL11.glLoadIdentity();
 		GL11.glOrtho(0, 800, 0, 600, 1, -1);
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);
-	 
+		
+		long time = System.currentTimeMillis();
+		int frames = 0;
+		
 		while (!Display.isCloseRequested()) {
 		    // Clear the screen and depth buffer
 		    GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);	
@@ -62,7 +86,13 @@ public class SimpleView {
 		    
 		    pollInput();
 		    Display.update();
-		    System.out.println(objsDrawn);
+		    frames++;
+		    if(System.currentTimeMillis() > time+1000) {
+			    System.out.println(objsDrawn+", FPS "+frames);
+			    time = System.currentTimeMillis();
+			    frames = 0;
+		    }
+		    
 		}
 	 
 		Display.destroy();
@@ -112,13 +142,15 @@ public class SimpleView {
     	GL11.glEnd();
 	}
 	
+	
+	
 	public void pollInput() {
 		
         if (Mouse.isButtonDown(0)) {
 		    int x = Mouse.getX();
 		    int y = Mouse.getY();
 				
-		    //System.out.println("MOUSE DOWN @ X: " + x + " Y: " + y);
+		    System.out.println("MOUSE DOWN @ X: " + x + " Y: " + y);
 		}
         
         
@@ -192,7 +224,7 @@ public class SimpleView {
 	
 	public static void main(String[] args) {
 		Universe u = new Universe();
-		u.generateSystems(800, 600, 1000);
+		u.generateSystems(800, 600, 2000);
 		SimpleView sv = new SimpleView(u);
 		sv.start();
 	}
