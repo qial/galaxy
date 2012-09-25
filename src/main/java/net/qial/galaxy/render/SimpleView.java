@@ -52,29 +52,57 @@ public class SimpleView {
 //			GL11.glVertex2f(100+200,100+200);
 //			GL11.glVertex2f(100,100+200);
 //		    GL11.glEnd();
+		    int objsDrawn = 0;
 		    for(ObjLoc loc : uni.getSystems()) {
-		    	drawObject(loc);
+		    	if(isInDrawArea(loc)) {
+		    		drawObject(loc);
+		    		objsDrawn++;
+		    	}
 		    }
 		    
 		    pollInput();
 		    Display.update();
+		    System.out.println(objsDrawn);
 		}
 	 
 		Display.destroy();
     }
 	
-	private void drawObject(ObjLoc loc) {
+	private boolean isInDrawArea(ObjLoc loc) {
+		int lx = getObjX(loc);
+		int ly = getObjY(loc);
+		if(lx < 0 || lx > WIDTH)
+			return false;
+		if(ly < 0 || ly > HEIGHT)
+			return false;
+		return true;
+	}
+	
+	private int getObjY(ObjLoc loc) {
 		// get x and y
-		int lx = loc.getX();
 		int ly = loc.getY();
 		// determine distance from center
-		int dx = x-lx;
 		int dy = y-ly;
 		// multiply by scalar
-		int fx = (int)(dx*scalar);
 		int fy = (int)(dy*scalar);
-		lx = WIDTH/2 + fx;
 		ly = HEIGHT/2 + fy;
+		return ly;
+	}
+	
+	private int getObjX(ObjLoc loc) {
+		// get x and y
+		int lx = loc.getX();
+		// determine distance from center
+		int dx = x-lx;
+		// multiply by scalar
+		int fx = (int)(dx*scalar);
+		lx = WIDTH/2 + fx;
+		return lx;
+	}
+	
+	private void drawObject(ObjLoc loc) {
+		int lx = getObjX(loc);
+		int ly = getObjY(loc);
 		
 		GL11.glBegin(GL11.GL_QUADS);
     	GL11.glVertex2f(lx-2, ly-2);
