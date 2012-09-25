@@ -16,7 +16,7 @@ public class StarSys {
 	
 	public void init() {
 
-		this.hash = SeedUtil.getSeedFor(id);
+		//this.hash = SeedUtil.getSeedFor(id);
 		
 	}
 	
