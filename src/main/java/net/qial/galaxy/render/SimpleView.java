@@ -1,5 +1,6 @@
 package net.qial.galaxy.render;
 
+
 import java.awt.Font;
 
 import net.qial.galaxy.world.ObjLoc;
@@ -11,6 +12,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
 
 public class SimpleView {
@@ -30,11 +32,12 @@ public class SimpleView {
 	 
 	public void init() {
 		// load a default java font
-		Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
+		Font awtFont = new Font("Arial", Font.BOLD, 20);
 		font = new TrueTypeFont(awtFont, false);
 	}
 	
 	public void start() {
+		
 	    try {
 		    Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
 		    Display.create();
@@ -48,6 +51,8 @@ public class SimpleView {
 		GL11.glLoadIdentity();
 		GL11.glOrtho(0, 800, 0, 600, 1, -1);
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);
+		
+		init();
 		
 		long time = System.currentTimeMillis();
 		int frames = 0;
@@ -73,6 +78,8 @@ public class SimpleView {
 		    		objsDrawn++;
 		    	}
 		    }
+		    
+		    font.drawString(100f, 50f, "THE LIGHTWEIGHT JAVA GAMES LIBRARY", Color.yellow);
 		    
 		    pollInput();
 		    Display.update();
