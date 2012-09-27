@@ -1,4 +1,6 @@
-package net.qial.galaxy.world;
+package net.qial.galaxy.engine;
+
+import net.qial.galaxy.world.SeedUtil;
 
 public abstract class SeededObject {
 	private String seed;

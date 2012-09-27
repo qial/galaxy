@@ -1,6 +1,7 @@
 package net.qial.galaxy.world;
 
 import net.qial.galaxy.elite.Elite;
+import net.qial.galaxy.engine.SeededObject;
 
 public class Sys extends SeededObject {
 	private String commodities;

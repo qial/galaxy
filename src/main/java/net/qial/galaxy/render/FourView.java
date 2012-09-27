@@ -5,6 +5,7 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
 
+import net.qial.galaxy.engine.Dim;
 import net.qial.galaxy.world.Universe3;
 
 public class FourView {
@@ -49,9 +50,11 @@ public class FourView {
 		
 	}
 	
-	private void renderView() {
+	// x and y are for 0,0 corner, effectively, all drawing is positive from there
+	private void renderView(Dim d1, Dim d2, int x, int y) {
 		
 	}
+	
 	/**
 	 * @param args
 	 */

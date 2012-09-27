@@ -1,5 +1,8 @@
 package net.qial.galaxy.world;
 
+import net.qial.galaxy.engine.Dim;
+import net.qial.galaxy.engine.SeededObject;
+
 public class Obj3Loc {
 	private SeededObject obj;
 	private int x;
