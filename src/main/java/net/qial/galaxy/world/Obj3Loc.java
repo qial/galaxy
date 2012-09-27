@@ -1,12 +1,14 @@
 package net.qial.galaxy.world;
 
-public class ObjLoc {
+public class Obj3Loc {
 	private SeededObject obj;
 	private int x;
 	private int y;
-	public ObjLoc(int x, int y, SeededObject obj) {
+	private int z;
+	public Obj3Loc(int x, int y, int z, SeededObject obj) {
 		this.x = x;
 		this.y = y;
+		this.z = z;
 		this.obj = obj;
 	}
 	public SeededObject getObj() {
@@ -27,12 +29,21 @@ public class ObjLoc {
 	public void setY(int y) {
 		this.y = y;
 	}
+	public int getZ() {
+		return z;
+	}
+	public void setZ(int z) {
+		this.z = z;
+	}
 	public int get(Dim d) {
 		if(d == Dim.X) {
 			return x;
 		}
 		else if(d == Dim.Y) {
 			return y;
+		}
+		else if(d == Dim.Z) {
+			return z;
 		}
 		return 0;
 	}
