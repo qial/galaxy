@@ -15,8 +15,8 @@ public class Universe3 {
 		Random r = new Random();
 		for(int i = 0; i < num; i++) {
 			int x = r.nextInt(cube);
-			int y = r.nextInt(cube);
-			int z = r.nextInt(cube);
+			int y = r.nextInt(cube/2);
+			int z = r.nextInt(cube/4);
 			
 			Sys newSys = new Sys(x+","+y+","+z);
 			systems.add(new Obj3Loc(x,y,z,newSys));
