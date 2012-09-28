@@ -79,7 +79,7 @@ public class SimpleView {
 		    	}
 		    }
 		    
-		    font.drawString(100f, 50f, "THE LIGHTWEIGHT JAVA GAMES LIBRARY", Color.yellow);
+		    //font.drawString(100f, 50f, "THE LIGHTWEIGHT JAVA GAMES LIBRARY", Color.yellow);
 		    
 		    pollInput();
 		    Display.update();
