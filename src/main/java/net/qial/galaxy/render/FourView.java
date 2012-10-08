@@ -76,14 +76,14 @@ public class FourView {
 			int ox = obj.get(d1)/2;
 			int oy = obj.get(d2)/2;
 			
-			if(ox > WIDTH/2 || oy > HEIGHT/2) {
+			// now divide by size/2 to scale to the view
+			int fx = ox + vx;
+			int fy = oy + vy;
+
+			
+			if(fx > WIDTH/2+x || fx < x || fy > HEIGHT/2+y || fy < y) {
 				continue;
 			}
-			
-			// now divide by size/2 to scale to the view
-			int fx = ox + x;
-			int fy = oy + y;
-			
 			
 			// draw
 			GL11.glBegin(GL11.GL_QUADS);
