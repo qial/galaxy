@@ -101,7 +101,7 @@ public class FourView {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Universe3 uni = new Universe3();
-		uni.generateSystems(1000, 2000);
+		uni.generateSystems(600, 1000);
 		FourView fv = new FourView(uni);
 		fv.start();
 	}
